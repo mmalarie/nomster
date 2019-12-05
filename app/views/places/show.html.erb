@@ -5,35 +5,35 @@
   <p><%= @place.description %></p>
 
  
-  </head>
-  <body>
-  <div id="map"></div>
+  
+ 
+  
 
   <% if @place.latitude.present? && @place.longitude.present? %>
 
-  <script>
+    <script>
 
-    function initMap() {
-      var myLatLng = {lat: <%= @place.latitude %>, lng: <%= @place.longitude %>};
+      function initMap() {
+        var myLatLng = {lat: <%= @place.latitude %>, lng: <%= @place.longitude %>};
 
-      var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 12,
-        center: myLatLng
-      });
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 12,
+          center: myLatLng
+        });
 
-      var marker = new google.maps.Marker({
-        position: myLatLng,
-        map: map,
-        title: 'Hello World!'
-      });
-    }
-  </script>
+        var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          title: 'Hello World!'
+        });
+      }
+    </script>
 
-  <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD0gB-dbIAkVKiyX4-kir7oDfca0afK-oc&callback=initMap">
-  </script>
-
-  <div id="map"></div>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD0gB-dbIAkVKiyX4-kir7oDfca0afK-oc&callback=initMap">
+    </script>
+    
+     <div id="map"></div>
   <% end %>
 
   <br />
@@ -116,15 +116,5 @@
     </blockquote>
   </div>
 <% end %>
-</div>
-
-<div class="col-12 col-sm-6">
-  <blockquote>
-    <% if comment.humanized_rating.present? %>
-      <b><%= comment.humanized_rating %></b> -
-    <% end %>
-    <%= comment.message %>
-    <small><%= comment.user.email %></small>
-  </blockquote>
 </div>
 
