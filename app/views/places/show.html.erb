@@ -32,7 +32,7 @@
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD0gB-dbIAkVKiyX4-kir7oDfca0afK-oc&callback=initMap">
     </script>
-    
+
      <div id="map"></div>
   <% end %>
 
@@ -53,10 +53,17 @@
   <%= f.submit "Add a Comment", class: 'btn btn-primary' %>
 <% end %>
 
+<%= simple_form_for @photo, url: place_photos_path(@place) do |f| %>
+  <%= f.input :message %>
+  <%= f.input :rating %>
+  <%= f.submit "Add a Comment", class: 'btn btn-primary' %>
+<% end 
+
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
   Add a comment
 </button>
+
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -117,4 +124,5 @@
   </div>
 <% end %>
 </div>
+
 
